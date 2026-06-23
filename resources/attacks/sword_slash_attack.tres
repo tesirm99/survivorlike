@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://ni7f6yu8q7rf"]
+
+[ext_resource type="Script" uid="uid://dwi8cxcgv4ndg" path="res://scripts/data/attack_data.gd" id="1_xbl0v"]
+[ext_resource type="Texture2D" uid="uid://0rq2gb3g36lr" path="res://assets/sword-slash-32x32.png" id="2_hhcre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2shtu"]
+
+[resource]
+script = ExtResource("1_xbl0v")
+texture = ExtResource("2_hhcre")
+collision_shape = SubResource("RectangleShape2D_2shtu")
+speed = 0.0
+spawn_distance = 45.0
+lifetime = 0.15000000000000002
+max_targets = 0
+metadata/_custom_type_script = "uid://dwi8cxcgv4ndg"

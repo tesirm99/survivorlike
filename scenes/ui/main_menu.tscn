@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://w5p1ilowbha2"]
+
+[ext_resource type="Script" uid="uid://43qky14lbk1i" path="res://scripts/main_menu.gd" id="1_sl1te"]
+
+[node name="MainMenu" type="Control" unique_id=185373072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1561556191]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.38170326, 0.38170323, 0.38170323, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1944066906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=2134111480]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=591446342]
+layout_mode = 2
+text = "Survivorme esta"
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=100084733]
+layout_mode = 2
+text = "Jugar"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1079908038]
+layout_mode = 2
+text = "Salir del juego"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

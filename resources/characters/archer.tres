@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://ct4dxybjek8jx"]
+
+[ext_resource type="Texture2D" uid="uid://b7ef6vadn74mq" path="res://assets/archer-32x32.png" id="1_8ffe5"]
+[ext_resource type="Script" uid="uid://bh1hjoa754xo3" path="res://scripts/data/character_data.gd" id="1_c1je3"]
+[ext_resource type="Resource" uid="uid://dv5cfpk8u85uc" path="res://resources/weapons/short_bow.tres" id="3_glq3l"]
+
+[resource]
+script = ExtResource("1_c1je3")
+id = &"archer"
+display_name = "Arquero"
+description = "Un muchacho que dispara con un arco."
+portrait = ExtResource("1_8ffe5")
+starting_weapon = ExtResource("3_glq3l")
+metadata/_custom_type_script = "uid://bh1hjoa754xo3"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dv5cfpk8u85uc"]
+
+[ext_resource type="Resource" uid="uid://byafha8x7rabn" path="res://resources/attacks/arrow_attack.tres" id="1_0ppmy"]
+[ext_resource type="Script" uid="uid://csapcut5k7pm8" path="res://scripts/data/weapon_data.gd" id="1_17h4h"]
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_w10t8"]
+
+[resource]
+script = ExtResource("1_17h4h")
+id = &"short_bow"
+display_name = "Arco corto"
+description = "Dispara flechas rápidamente a un rango corto."
+icon = ExtResource("1_w10t8")
+attack_data = ExtResource("1_0ppmy")
+metadata/_custom_type_script = "uid://csapcut5k7pm8"

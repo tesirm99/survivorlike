@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://byafha8x7rabn"]
+
+[ext_resource type="Script" uid="uid://dwi8cxcgv4ndg" path="res://scripts/data/attack_data.gd" id="1_wgke8"]
+[ext_resource type="Texture2D" uid="uid://cpw4flpxfmqsq" path="res://assets/arrow-32x16.png" id="2_2pvq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gqiv"]
+
+[resource]
+script = ExtResource("1_wgke8")
+texture = ExtResource("2_2pvq5")
+collision_shape = SubResource("RectangleShape2D_7gqiv")
+speed = 700.0
+spawn_distance = 25.0
+lifetime = 1.2
+metadata/_custom_type_script = "uid://dwi8cxcgv4ndg"

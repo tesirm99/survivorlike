@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bh755was2jyu5"]
+
+[ext_resource type="Script" uid="uid://dwi8cxcgv4ndg" path="res://scripts/data/attack_data.gd" id="1_7mqce"]
+[ext_resource type="Texture2D" uid="uid://su12la07efww" path="res://assets/fire-projectile-24x16.png" id="2_rm5wr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0rgg"]
+
+[resource]
+script = ExtResource("1_7mqce")
+texture = ExtResource("2_rm5wr")
+collision_shape = SubResource("CircleShape2D_m0rgg")
+speed = 450.0
+spawn_distance = 25.0
+lifetime = 1.5
+metadata/_custom_type_script = "uid://dwi8cxcgv4ndg"

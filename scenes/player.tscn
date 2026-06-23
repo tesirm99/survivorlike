@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cna5y6j6ssfha"]
+
+[ext_resource type="Script" uid="uid://7vbdxgy1c13k" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bsbjik58y13sn" path="res://scripts/weapon_controller.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://ct3m4yr6brnpa" path="res://scenes/attack.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://c2xs3m0883xln" path="res://scenes/ui/health_bar.tscn" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cnuqodiaxqd2t" path="res://scripts/health.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://p5prrmfc5oen" path="res://scripts/experience_component.gd" id="6_tuyoq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iywne"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1190409153]
+collision_mask = 8
+script = ExtResource("1_3vyb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=531546142]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1763487832]
+shape = SubResource("CircleShape2D_iywne")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=861279424]
+zoom = Vector2(2, 2)
+
+[node name="WeaponController" type="Node" parent="." unique_id=1694962395]
+script = ExtResource("2_g2els")
+attack_scene = ExtResource("3_qhqgy")
+
+[node name="CooldownTimer" type="Timer" parent="WeaponController" unique_id=1684598265]
+one_shot = true
+
+[node name="HealthBar" parent="." unique_id=11480093 instance=ExtResource("4_dqkch")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=557527033]
+script = ExtResource("5_qlg0r")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="." unique_id=1382201415]
+wait_time = 0.5
+one_shot = true
+
+[node name="ExperienceComponent" type="Node" parent="." unique_id=1275512080]
+script = ExtResource("6_tuyoq")
+metadata/_custom_type_script = "uid://p5prrmfc5oen"

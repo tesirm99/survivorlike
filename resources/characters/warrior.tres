@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://bqnpbs71xtem4"]
+
+[ext_resource type="Script" uid="uid://bh1hjoa754xo3" path="res://scripts/data/character_data.gd" id="1_2m8aq"]
+[ext_resource type="Texture2D" uid="uid://cc5oqc00lna10" path="res://assets/warrior-32x32.png" id="1_e7muu"]
+[ext_resource type="Resource" uid="uid://dx5ot3csgfyqc" path="res://resources/weapons/sword.tres" id="3_g5w5n"]
+
+[resource]
+script = ExtResource("1_2m8aq")
+id = &"warrior"
+display_name = "Guerrero"
+description = "Un pequeño muchacho que pega con su espada."
+portrait = ExtResource("1_e7muu")
+starting_weapon = ExtResource("3_g5w5n")
+metadata/_custom_type_script = "uid://bh1hjoa754xo3"

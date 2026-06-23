@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://cq0yjldijxl4e"]
+
+[ext_resource type="Script" uid="uid://dtr5e8dh4ucm2" path="res://scripts/character_selection.gd" id="1_ptmoy"]
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_wk3ts"]
+[ext_resource type="Script" uid="uid://bh1hjoa754xo3" path="res://scripts/data/character_data.gd" id="2_g7mbk"]
+[ext_resource type="Resource" uid="uid://bqnpbs71xtem4" path="res://resources/characters/warrior.tres" id="3_uhtkh"]
+[ext_resource type="Resource" uid="uid://x8gl3rn3m4kv" path="res://resources/characters/mage.tres" id="4_hnrdf"]
+[ext_resource type="Resource" uid="uid://ct4dxybjek8jx" path="res://resources/characters/archer.tres" id="5_epxdy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3bln3"]
+font_size = 28
+
+[node name="CharacterSelection" type="Control" unique_id=437585816]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ptmoy")
+available_characters = Array[ExtResource("2_g7mbk")]([ExtResource("3_uhtkh"), ExtResource("4_hnrdf"), ExtResource("5_epxdy")])
+
+[node name="Background" type="ColorRect" parent="." unique_id=1365649432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=487951370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer" unique_id=180197689]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=1419678107]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainVBox/Header" unique_id=1350561463]
+layout_mode = 2
+text = "Volver"
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/MainVBox/Header" unique_id=2038543647]
+layout_mode = 2
+text = "Seleccionar personaje"
+label_settings = SubResource("LabelSettings_3bln3")
+
+[node name="HeaderSpacer" type="Control" parent="MarginContainer/MainVBox/Header" unique_id=1370896087]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=1956093448]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="CharacterListCard" type="PanelContainer" parent="MarginContainer/MainVBox/Content" unique_id=1114575803]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainVBox/Content/CharacterListCard" unique_id=692616729]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CharacterList" type="VBoxContainer" parent="MarginContainer/MainVBox/Content/CharacterListCard/MarginContainer" unique_id=523816922]
+layout_mode = 2
+
+[node name="ListTitle" type="Label" parent="MarginContainer/MainVBox/Content/CharacterListCard/MarginContainer/CharacterList" unique_id=1226708690]
+layout_mode = 2
+text = "Personajes"
+horizontal_alignment = 1
+
+[node name="CharacterButtonsContainer" type="VBoxContainer" parent="MarginContainer/MainVBox/Content/CharacterListCard/MarginContainer/CharacterList" unique_id=556824524]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PreviewCard" type="PanelContainer" parent="MarginContainer/MainVBox/Content" unique_id=533526767]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainVBox/Content/PreviewCard" unique_id=903162412]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PreviewContent" type="VBoxContainer" parent="MarginContainer/MainVBox/Content/PreviewCard/MarginContainer" unique_id=1466779679]
+layout_mode = 2
+
+[node name="CharacterSprite" type="TextureRect" parent="MarginContainer/MainVBox/Content/PreviewCard/MarginContainer/PreviewContent" unique_id=1339189513]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+texture = ExtResource("1_wk3ts")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CharacterName" type="Label" parent="MarginContainer/MainVBox/Content/PreviewCard/MarginContainer/PreviewContent" unique_id=981596132]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Guerrero"
+
+[node name="CharacterDescription" type="Label" parent="MarginContainer/MainVBox/Content/PreviewCard/MarginContainer/PreviewContent" unique_id=1342067130]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Un pequeño muchacho que pega tajos con una espada."
+
+[node name="StatsCard" type="PanelContainer" parent="MarginContainer/MainVBox/Content" unique_id=1980137778]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainVBox/Content/StatsCard" unique_id=1838872241]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="StatsContent" type="VBoxContainer" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer" unique_id=520241519]
+layout_mode = 2
+
+[node name="StatsTitle" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=483951131]
+layout_mode = 2
+text = "Estadísticas"
+horizontal_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=1525398118]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Vida: 100"
+
+[node name="SpeedLabel" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=129921501]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Velocidad de movimiento: 200"
+
+[node name="DamageLabel" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=496610176]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Daño: 10"
+
+[node name="WeaponTitle" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=247612707]
+layout_mode = 2
+text = "Arma inicial"
+
+[node name="WeaponLabel" type="Label" parent="MarginContainer/MainVBox/Content/StatsCard/MarginContainer/StatsContent" unique_id=1776011962]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Espada larga - Ejecuta un tajo frontal"
+
+[node name="Footer" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=484028727]
+layout_mode = 2
+
+[node name="FooterSpacer" type="Control" parent="MarginContainer/MainVBox/Footer" unique_id=1918349757]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayButton" type="Button" parent="MarginContainer/MainVBox/Footer" unique_id=1384347160]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+text = "Comenzar partida"
+
+[connection signal="pressed" from="MarginContainer/MainVBox/Header/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainVBox/Footer/PlayButton" to="." method="_on_play_button_pressed"]

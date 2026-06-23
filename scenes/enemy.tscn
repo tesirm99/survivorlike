@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://oo0rode1oi8d"]
+
+[ext_resource type="Script" uid="uid://cnuqodiaxqd2t" path="res://scripts/health.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://bgko1nsqp1bxc" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://c2xs3m0883xln" path="res://scenes/ui/health_bar.tscn" id="3_4ra3w"]
+[ext_resource type="Script" uid="uid://dgmss00xi6rok" path="res://scripts/contact_damage_area.gd" id="4_5uy6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcjmn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6dbp"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1293048777]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=814097087]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1253670288]
+shape = SubResource("CircleShape2D_hcjmn")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=490521631]
+script = ExtResource("1_7p1mj")
+metadata/_custom_type_script = "uid://cnuqodiaxqd2t"
+
+[node name="HealthBar" parent="." unique_id=11480093 instance=ExtResource("3_4ra3w")]
+
+[node name="ContactDamageArea" type="Area2D" parent="." unique_id=1025039042]
+collision_layer = 0
+script = ExtResource("4_5uy6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamageArea" unique_id=985025488]
+shape = SubResource("CircleShape2D_k6dbp")
+
+[node name="DamageTimer" type="Timer" parent="ContactDamageArea" unique_id=930147047]
+wait_time = 0.5

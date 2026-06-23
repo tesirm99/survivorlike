@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cl1m476nyrb0g"]
+
+[ext_resource type="Script" uid="uid://h4l7fg5p25xk" path="res://scripts/game_hud.gd" id="1_xsr0h"]
+
+[node name="GameHUD" type="CanvasLayer" unique_id=1047915213]
+process_mode = 1
+script = ExtResource("1_xsr0h")
+
+[node name="TopHealthBar" type="ProgressBar" parent="." unique_id=1394298661]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="LeftStatsPanel" type="VBoxContainer" parent="." unique_id=241364858]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_right = 40.0
+offset_bottom = 25.0
+grow_vertical = 2
+
+[node name="TimeLabel" type="Label" parent="LeftStatsPanel" unique_id=114147567]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="KillsLabel" type="Label" parent="LeftStatsPanel" unique_id=557123020]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BottomExperienceContainer" type="VBoxContainer" parent="." unique_id=516688235]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LevelLabel" type="Label" parent="BottomExperienceContainer" unique_id=348925474]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExperienceBar" type="ProgressBar" parent="BottomExperienceContainer" unique_id=1106235235]
+unique_name_in_owner = true
+layout_mode = 2

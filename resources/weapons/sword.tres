@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dx5ot3csgfyqc"]
+
+[ext_resource type="Script" uid="uid://csapcut5k7pm8" path="res://scripts/data/weapon_data.gd" id="1_0w5r0"]
+[ext_resource type="Resource" uid="uid://ni7f6yu8q7rf" path="res://resources/attacks/sword_slash_attack.tres" id="1_d4cb0"]
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_t8t18"]
+
+[resource]
+script = ExtResource("1_0w5r0")
+id = &"sword"
+display_name = "Espada larga"
+description = "Ejecuta un tajo frontal."
+icon = ExtResource("1_t8t18")
+attack_data = ExtResource("1_d4cb0")
+metadata/_custom_type_script = "uid://csapcut5k7pm8"
