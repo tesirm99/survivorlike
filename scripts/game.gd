@@ -1,5 +1,7 @@
 extends Node2D
 
+const MAIN_MENU_SCENE := "res://scenes/ui/main_menu.tscn"
+
 @export var player_scene: PackedScene
 @export var debug_character: CharacterData
 @export var game_over_scene: PackedScene
@@ -11,15 +13,20 @@ extends Node2D
 @onready var enemy_spawner: EnemySpawner = $EnemySpawner
 @onready var ui: CanvasLayer = $UI
 @onready var hud: GameHUD = $GameHUD
+@onready var pause_menu: PauseMenu = $UI/PauseMenu
 
 var player: Player
 var enemies_killed := 0
 var survived_time := 0.0
 var game_finished := false
+var is_paused_by_menu := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().paused = false
+	
+	pause_menu.resume_requested.connect(_resume_game)
+	pause_menu.exit_requested.connect(_exit_to_main_menu)
+	
 	_spawn_player()
 	enemy_spawner.enemy_spawned.connect(_on_enemy_spawned)
 
@@ -70,8 +77,35 @@ func _on_player_died() -> void:
 		return
 	
 	game_finished = true
+	is_paused_by_menu = false
+	pause_menu.close()
+	
 	get_tree().paused = true
 	
 	var game_over := game_over_scene.instantiate() as GameOverScreen
 	ui.add_child(game_over)
 	game_over.setup(enemies_killed, survived_time)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if game_finished:
+		return
+	
+	if event.is_action_pressed("ui_cancel"):
+		if is_paused_by_menu:
+			_resume_game()
+		else:
+			_pause_game()
+
+func _pause_game() -> void:
+	is_paused_by_menu = true
+	get_tree().paused = true
+	pause_menu.open()
+	
+func _resume_game() -> void:
+	is_paused_by_menu = false
+	get_tree().paused = false
+	pause_menu.close()
+	
+func _exit_to_main_menu() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file(MAIN_MENU_SCENE)

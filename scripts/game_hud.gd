@@ -10,6 +10,17 @@ extends CanvasLayer
 func setup(player: Player) -> void:
 	player.health_changed.connect(_on_player_health_changed)
 	player.experience_changed.connect(_on_player_experience_changed)
+	
+	_on_player_health_changed(
+		player.health.current_health,
+		player.health.maximum_health
+	)
+
+	_on_player_experience_changed(
+		player.experience.current_experience,
+		player.experience.required_experience,
+		player.experience.level
+	)
 
 func set_kills(amount: int) -> void:
 	kills_label.text = "Enemigos eliminados: %d" % amount

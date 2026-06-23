@@ -38,7 +38,6 @@ func setup(character: CharacterData, attack_parent: Node) -> void:
 		attack_parent
 	)
 	
-
 func add_experience(amount: int) -> void:
 	experience.add_experience(amount)
 

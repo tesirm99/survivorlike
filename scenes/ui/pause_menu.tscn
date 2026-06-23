@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cesdkh5m4b62u"]
+
+[ext_resource type="Script" uid="uid://cfn8k5lj0or3g" path="res://scripts/pause_menu.gd" id="1_6tw0m"]
+
+[node name="PauseMenu" type="Control" unique_id=1377946251]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6tw0m")
+
+[node name="Panel" type="Panel" parent="." unique_id=2115954964]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=152522357]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer" unique_id=194893164]
+layout_mode = 2
+text = "PAUSA"
+
+[node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=1366733830]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continuar"
+
+[node name="ExitButton" type="Button" parent="Panel/VBoxContainer" unique_id=712535538]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir"
