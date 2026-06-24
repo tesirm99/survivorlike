@@ -55,10 +55,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		var direction := global_position.direction_to(get_global_mouse_position())
-		weapon_controller.attack(global_position, direction)
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("attack"):
+		#var direction := global_position.direction_to(get_global_mouse_position())
+		#weapon_controller.attack(global_position, direction)
 
 func take_damage(amount: float) -> void:
 	if not invulnerability_timer.is_stopped():
@@ -87,23 +87,26 @@ func _on_died() -> void:
 	died.emit()
 
 func apply_upgrade(upgrade: UpgradeData) -> void:
+	print(upgrade.value)
 	match upgrade.type:
 		UpgradeData.UpgradeType.MAX_HEALTH:
 			_apply_max_health_upgrade(upgrade.value)
 		UpgradeData.UpgradeType.DAMAGE:
 			damage_mult = upgrade.value
-			_update_weapon_stats()
+			_update_weapon_damage()
 		UpgradeData.UpgradeType.ATTACK_SPEED:
 			attack_speed_mult = upgrade.value
-			_update_weapon_stats()
+			_update_weapon_attack_speed()
 			
 func _apply_max_health_upgrade(amount: float) -> void:
 	health.increase_max_health(amount, true)
 	
-func _update_weapon_stats() -> void:
+func _update_weapon_damage() -> void:
 	if data == null:
 		return
-	weapon_controller.set_modifiers(
-		damage_mult,
-		attack_speed_mult
-	)
+	weapon_controller.set_damage_mod(damage_mult)
+	
+func _update_weapon_attack_speed() -> void:
+	if data == null:
+		return
+	weapon_controller.set_attack_speed_mod(attack_speed_mult)
