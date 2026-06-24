@@ -23,3 +23,16 @@ func take_damage(amount: float) -> void:
 	if is_zero_approx(current_health):
 		is_dead = true
 		died.emit()
+
+func increase_max_health(amount: float, heal: bool) -> void:
+	if amount <= 0.0 or is_dead:
+		return
+	
+	maximum_health += amount
+	
+	if heal:
+		current_health += amount
+	else:
+		current_health = minf(current_health, maximum_health)
+	
+	health_changed.emit(current_health, maximum_health)

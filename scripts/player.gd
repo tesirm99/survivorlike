@@ -13,7 +13,10 @@ signal leveled_up(new_level: int)
 @onready var experience: ExperienceComponent = $ExperienceComponent
 @onready var player_camera: Camera2D = $Camera2D
 @onready var invulnerability_timer: Timer = $InvulnerabilityTimer
+
 var data: CharacterData
+var damage_mult := 1.0
+var attack_speed_mult := 1.0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -82,3 +85,25 @@ func _on_leveled_up(new_level: int) -> void:
 func _on_died() -> void:
 	set_physics_process(false)
 	died.emit()
+
+func apply_upgrade(upgrade: UpgradeData) -> void:
+	match upgrade.type:
+		UpgradeData.UpgradeType.MAX_HEALTH:
+			_apply_max_health_upgrade(upgrade.value)
+		UpgradeData.UpgradeType.DAMAGE:
+			damage_mult = upgrade.value
+			_update_weapon_stats()
+		UpgradeData.UpgradeType.ATTACK_SPEED:
+			attack_speed_mult = upgrade.value
+			_update_weapon_stats()
+			
+func _apply_max_health_upgrade(amount: float) -> void:
+	health.increase_max_health(amount, true)
+	
+func _update_weapon_stats() -> void:
+	if data == null:
+		return
+	weapon_controller.set_modifiers(
+		damage_mult,
+		attack_speed_mult
+	)

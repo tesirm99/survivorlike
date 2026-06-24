@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://ceuayd4v4pn5c"]
 
 [ext_resource type="Script" uid="uid://d2svjk6yq5ihx" path="res://scripts/data/enemy_data.gd" id="1_6l6fd"]
-[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="2_jqeog"]
+[ext_resource type="Texture2D" uid="uid://ccg6qxahmlagy" path="res://assets/GoblinTundra.png" id="2_jqeog"]
 
 [resource]
 script = ExtResource("1_6l6fd")

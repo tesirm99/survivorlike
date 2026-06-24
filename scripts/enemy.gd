@@ -19,7 +19,7 @@ func _ready() -> void:
 		set_physics_process(false)
 		return
 	sprite.texture = data.texture
-	sprite.modulate = Color(1.0, 0.4, 0.4)
+	#sprite.modulate = Color(1.0, 0.4, 0.4)
 	
 	contact_damage.setup(data.contact_damage)
 	health.setup(data.max_health)

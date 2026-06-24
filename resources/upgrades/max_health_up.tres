@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://7hwca1qcq2hw"]
+
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_8dey0"]
+[ext_resource type="Script" uid="uid://bf3go46knfn0b" path="res://scripts/data/upgrade_data.gd" id="1_bvm1k"]
+
+[resource]
+script = ExtResource("1_bvm1k")
+id = &"max_health_up"
+display_name = "Max Health Up"
+icon = ExtResource("1_8dey0")
+value = 10.0
+metadata/_custom_type_script = "uid://bf3go46knfn0b"

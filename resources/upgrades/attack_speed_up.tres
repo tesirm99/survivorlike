@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c30x26kqg82c"]
+
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_llian"]
+[ext_resource type="Script" uid="uid://bf3go46knfn0b" path="res://scripts/data/upgrade_data.gd" id="1_pt3ra"]
+
+[resource]
+script = ExtResource("1_pt3ra")
+id = &"attack_speed_up"
+display_name = "Attack Speed Up"
+icon = ExtResource("1_llian")
+type = 2
+value = 0.1
+metadata/_custom_type_script = "uid://bf3go46knfn0b"

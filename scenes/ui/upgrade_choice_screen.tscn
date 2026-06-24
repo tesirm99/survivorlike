@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://28nn4ryanwux"]
+
+[ext_resource type="Script" uid="uid://cpf65frwxkmhm" path="res://scripts/upgrade_choice_screen.gd" id="1_enr4j"]
+
+[node name="UpgradeChoiceScreen" type="Control" unique_id=405978911]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_enr4j")
+
+[node name="Panel" type="Panel" parent="." unique_id=524433538]
+layout_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=2079572400]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1065429617]
+layout_mode = 2
+
+[node name="ChoiceButton1" type="Button" parent="Panel/VBoxContainer" unique_id=402108358]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChoiceButton2" type="Button" parent="Panel/VBoxContainer" unique_id=1181868120]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChoiceButton3" type="Button" parent="Panel/VBoxContainer" unique_id=986007294]
+unique_name_in_owner = true
+layout_mode = 2

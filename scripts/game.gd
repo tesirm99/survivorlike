@@ -5,6 +5,7 @@ const MAIN_MENU_SCENE := "res://scenes/ui/main_menu.tscn"
 @export var player_scene: PackedScene
 @export var debug_character: CharacterData
 @export var game_over_scene: PackedScene
+@export var available_upgrades: Array[UpgradeData]
 
 @onready var entities: Node2D = $Entities
 @onready var attacks: Node2D = %Attacks
@@ -14,6 +15,7 @@ const MAIN_MENU_SCENE := "res://scenes/ui/main_menu.tscn"
 @onready var ui: CanvasLayer = $UI
 @onready var hud: GameHUD = $GameHUD
 @onready var pause_menu: PauseMenu = $UI/PauseMenu
+@onready var upgrade_choice_screen: UpgradeChoiceScreen = $UI/UpgradeChoiceScreen
 
 var player: Player
 var enemies_killed := 0
@@ -26,9 +28,11 @@ func _ready() -> void:
 	
 	pause_menu.resume_requested.connect(_resume_game)
 	pause_menu.exit_requested.connect(_exit_to_main_menu)
+	upgrade_choice_screen.upgrade_selected.connect(_on_upgrade_selected)
 	
 	_spawn_player()
 	enemy_spawner.enemy_spawned.connect(_on_enemy_spawned)
+	
 
 func _process(delta: float) -> void:
 	if game_finished:
@@ -55,6 +59,8 @@ func _spawn_player() -> void:
 	hud.setup(player)
 	hud.set_kills(enemies_killed)
 	hud.set_time(survived_time)
+	
+	player.leveled_up.connect(_on_player_leveled_up)
 	
 	enemy_spawner.setup(
 		player.player_camera,
@@ -87,7 +93,7 @@ func _on_player_died() -> void:
 	game_over.setup(enemies_killed, survived_time)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if game_finished:
+	if game_finished or upgrade_choice_screen.visible:
 		return
 	
 	if event.is_action_pressed("ui_cancel"):
@@ -97,6 +103,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			_pause_game()
 
 func _pause_game() -> void:
+	if upgrade_choice_screen.visible:
+		return
+		
 	is_paused_by_menu = true
 	get_tree().paused = true
 	pause_menu.open()
@@ -109,3 +118,25 @@ func _resume_game() -> void:
 func _exit_to_main_menu() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+	
+func _on_player_leveled_up(_new_leve: int) -> void:
+	if game_finished:
+		return
+	
+	get_tree().paused = true
+	
+	var choices := _get_upgrade_choice()
+	upgrade_choice_screen.open(choices)
+	
+func _get_upgrade_choice() -> Array[UpgradeData]:
+	var pool := available_upgrades.duplicate()
+	pool.shuffle()
+	return pool.slice(0, min(3, pool.size()))
+
+func _on_upgrade_selected(upgrade: UpgradeData) -> void:
+	upgrade_choice_screen.close()
+	
+	if is_instance_valid(player):
+		player.apply_upgrade(upgrade)
+	
+	get_tree().paused = false

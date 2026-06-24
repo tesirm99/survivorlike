@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cod64ew1rw05h"]
+
+[ext_resource type="Texture2D" uid="uid://c1tcul17vvmyr" path="res://icon.svg" id="1_g4v6i"]
+[ext_resource type="Script" uid="uid://bf3go46knfn0b" path="res://scripts/data/upgrade_data.gd" id="1_k2jb4"]
+
+[resource]
+script = ExtResource("1_k2jb4")
+id = &"damage_up"
+display_name = "Damage Up"
+icon = ExtResource("1_g4v6i")
+type = 1
+value = 0.1
+metadata/_custom_type_script = "uid://bf3go46knfn0b"
